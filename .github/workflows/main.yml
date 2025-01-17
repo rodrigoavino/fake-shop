@@ -1,6 +1,4 @@
 name: CI-CD
-
-
 on:
   push:
     branches: ["main"]
@@ -15,11 +13,10 @@ jobs:
        run:  echo "Executando o comando Docker login"
      - name: Envio da imagem docker
        run:  echo "Executando o comando Docker login"
-
-cd:
+  cd:
 
   runs-on: ubuntu-latest
-   steps:
+  steps:
      - name: Autenticar no AWs
        run: echo "Executando o comando aws configure"
      - name: Configurar kubectl
