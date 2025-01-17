@@ -14,9 +14,8 @@ jobs:
      - name: Envio da imagem docker
        run:  echo "Executando o comando Docker login"
   cd:
-
-  runs-on: ubuntu-latest
-  steps:
+   runs-on: ubuntu-latest
+   steps:
      - name: Autenticar no AWs
        run: echo "Executando o comando aws configure"
      - name: Configurar kubectl
