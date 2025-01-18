@@ -20,12 +20,16 @@ jobs:
        run: |
         echo "Secrets: ${{ secrets.DOCKERHUB_USERNAME }} - Token: ***"   
 
-     - name: Autenticar no Docker Hub
-       run: echo "Executando o comando Docker login"
-     - name: Construcao da imagem docker
-       run:  echo "Executando o comando Docker login"
-     - name: Envio da imagem docker
-       run:  echo "Executando o comando Docker login"
+     - name: Build and push
+       uses: docker/build-push-action@v6
+       with:
+          context: ./src
+          push: true
+          file: ./src/Dockerfile
+          tags:  |
+            rodrigoavino/fake-shop:latest
+            rodrigoavino/fake-shop:v${{github.run_number}}
+
   cd:
    runs-on: ubuntu-latest
    needs: [ci]
